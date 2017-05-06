@@ -3,8 +3,8 @@
 Pekka Leppänen, Sandra Calvo, Ville Lindholm, Jukka Ruponen
 
 
-## ESITYS
-(https://github.com/oirearviohack/ibm-duodecim/blob/master/ODA-esitys%20v2.pdf)
+## ESITYS (PDF):
+https://github.com/oirearviohack/ibm-duodecim/blob/master/ODA-esitys%20v2.pdf
 
 
 ## ASENNUSOHJEET
@@ -29,7 +29,7 @@ Huom! Voicechat puheliittymä käyttää nyt selaimen puheentunnistusta (webkitS
 - Watson / Tone Analyzer
 3. Bindaa Conversation ja Tone Analyzer
 4. Kun Node-RED palvelu on käynnistynyt, bindaa Conversation ja Tone Analyzer palvelut siihen (Connect)
-5. Kopioi oda-node-flow.txt tiedoston sisältö leikepöydälle
+5. Kopioi [oda-node-flow.txt](https://raw.githubusercontent.com/oirearviohack/ibm-duodecim/master/oda-node-flow.txt) tiedoston JSON-sisältö leikepöydälle
 6. Avaa Node-RED UI
 7. Node-RED UI:ssa, valitse Menu > Import > Clipboard, liitä flow kuvaus ja paina "Import"
 8. Paina [Deploy]
@@ -39,22 +39,25 @@ Valitse Node-RED:ssä Menu > Manage Palette > Install ja asenna "node-red-dashbo
 
 Conversation service:
 1. Avaa Conversation palvelun käyttöliittymä
-2. "Workspace" ruudulla, valitse "Import workspace" ja valitse oda-conversation-workspace.json tiedosto
+2. "Workspace" ruudulla, valitse "Import workspace" ja valitse [oda-conversation-workspace.json](https://raw.githubusercontent.com/oirearviohack/ibm-duodecim/master/oda-conversation-workspace.json) tiedosto
 
 Translation service:
-1. Pura oda-translate.zip levyllesi
+1. Pura [oda-translate.zip](https://github.com/oirearviohack/ibm-duodecim/raw/master/oda-translate.zip) levyllesi
 2. Avaa app.js ja laita oma Google API avaimesi (http://developers.google.com)
-2. Asenna CF CLI, mikäli sinulla ei sitä jo ole (https://console.ng.bluemix.net/docs/cli/index.html#cli)
-3. Kirjaudu Bluemixiin CF:llä
-$ cf login
-3. Siirry oda-translate hakemistoon ja vie sovellus Bluemixiin
-$ cf push oda-translate
-4. Käy Node-RED:ssä konfiguroimassa "translate" ja "http" nodet jotta ne viittaavat sinun oda-translate URL:ään.
+3. Avaa package.json ja vaihda "name" avaimen arvo yksilölliseksi, esim: oda-translate-abc
+3. Asenna CF CLI, mikäli sinulla ei sitä jo ole (https://console.ng.bluemix.net/docs/cli/index.html#cli)
+4. Kirjaudu Bluemixiin CF:llä (cf login)
+5. Siirry oda-translate hakemistoon ja vie sovellus Bluemixiin (cf push oda-translate-abc)
+6. Käy Node-RED:ssä päivittämässä "translate" ja "http" nodet, joissa viitataan oda-translate URL:ään (muuta linkki vastaamaan yksilöllistä osoitettasi)
 
 
 ### B. Node-Red chat integraatio web-sivulle
 
-Tämä Node-RED flow implementoi chatbot-liittymän (http://your-node-red-url.mybluemix.net/bot) jossa voi keskustella kirjoittamalla suoraan suomenkielellä. Lisäksi flow implementoi keskustelun interaktiot Conversation palvelun kanssa. Tämä esimerkki hyödyntää IBM Virtual Agent palvelu, joka auttaa keskustelun luomisessa suoraan selaimesta ja ilman mitään koodausta. Chatti näkyy ODA demo sivuun vieressä.
+![Node-RED web flow esimerkki](https://github.com/oirearviohack/ibm-duodecim/blob/master/oda-web-node-flow-sample.png?raw=true)
+
+Tämä Node-RED flow upottaa chatbot-liittymän (http://your-node-red-url.mybluemix.net/bot) halutulle verkkosivulle, jolloin sivulla voi keskustella botin kanssa suoraan ja suomenkielellä. Lisäksi flow implementoi keskustelun interaktiot Conversation palvelun kanssa. Tämä esimerkki hyödyntää IBM Virtual Agent palvelua, joka auttaa keskustelun luomisessa suoraan selaimesta ja ilman mitään koodausta. Chatti näkyy ODA demo sivuun vieressä.
+
+![Embed esimerkki](https://github.com/oirearviohack/ibm-duodecim/blob/master/oda-embedded-chatbot-sample.png?raw=true)
 
 #### Asennus ja konfigurointi
 
@@ -76,6 +79,7 @@ IBM Virtual Agent
 3. Tarvitset Virtual Agent credentiaalit saadakseen Node-Red flown toimimaan. Saat niitä Virtual Agent APIn kautta. 
 Lisätietoja tässä: https://www.ibm.com/us-en/marketplace/cognitive-customer-engagement
 
+![IBM Virtual Agent esimerkki](https://github.com/oirearviohack/ibm-duodecim/blob/master/IBM_Virtual_Agent_sample.png?raw=true)
 
 
 
