@@ -4,7 +4,10 @@ Pekka Leppänen, Sandra Calvo, Ville Lindholm, Jukka Ruponen
 
 
 ## ESITYS (PDF):
-https://github.com/oirearviohack/ibm-duodecim/blob/master/ODA-esitys%20v2.pdf
+https://github.com/oirearviohack/ibm-duodecim/blob/master/IBM-Duodecim-ODA-esitys_v2.pdf
+
+![slide1](https://github.com/oirearviohack/ibm-duodecim/blob/master/IBM-Duodecim-ODA-esitys_v2_kuva1.png?raw=true)
+![slide1](https://github.com/oirearviohack/ibm-duodecim/blob/master/IBM-Duodecim-ODA-esitys_v2_kuva2.png?raw=true)
 
 
 ## ASENNUSOHJEET
