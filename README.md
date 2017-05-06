@@ -1,8 +1,16 @@
-IBM-Duodecim OIREAPULAINEN
+# OIREAPULAINEN
+### IBM-Duodecim tiimi, 2017-05-06
 
-Asennusohjeet:
+## ASENNUSOHJEET
 
-A. Node-RED flow:
+### A. Node-RED flow
+
+Node-RED flow implementoi chat-liittymän (http://<node-red-url>/chat), puheentunnistusta tukevan chat-liittymän (http://<node-red-url>/voicechat) ja websocketin, jonka kautta kaikki keskustelu kulkee. Lisäksi flow implementoi keskustelun interaktiot Conversation, Tone Analyzer ja Sentiment palvelujen kanssa.
+Flow:ssa on myös valmiina "http post" input node johon käyttäjän input työntää jostakin muualta, esim. iOS sovelluksesta (vastausten kuuntelu tapahtuu em. websocketin kautta).
+
+Huom! Voicechat puheliittymä käyttää nyt selaimen puheentunnistusta (webkitSpeechRecognition kirjasto), joka toimii ainakin Chromella, ehkä myös Firefoxilla. Lisäksi flow:ssa käytetään hyväksi Google Translate -palvelua (oda-translate), jolla käyttäjän syöttämät viestit käännetään englanniksi Tone Analyzer ja Sentiment analyysiä varten.
+
+#### Asennus ja konfigurointi
 1. Kirjaudu Bluemixiin (http://bluemix.net)
 2. Mene "Bluemix Catalog" ja luo nämä:
 - Boilerplates / "Node-RED starter"
@@ -32,14 +40,12 @@ $ cf push oda-translate
 4. Käy Node-RED:ssä konfiguroimassa "translate" ja "http" nodet jotta ne viittaavat sinun oda-translate URL:ään.
 
 
-Kuvaus:
-Node-RED flow implementoi chat-liittymän (http://<node-red-url>/chat), puheentunnistusta tukevan chat-liittymän (http://<node-red-url>/voicechat) ja websocketin, jonka kautta kaikki keskustelu kulkee. Lisäksi flow implementoi keskustelun interaktiot Conversation, Tone Analyzer ja Sentiment palvelujen kanssa.
-Flow:ssa on myös valmiina "http post" input node johon käyttäjän input työntää jostakin muualta, esim. iOS sovelluksesta (vastausten kuuntelu tapahtuu em. websocketin kautta).
 
-Huom! Voicechat puheliittymä käyttää nyt selaimen puheentunnistusta (webkitSpeechRecognition kirjasto), joka toimii ainakin Chromella, ehkä myös Firefoxilla. Lisäksi flow:ssa käytetään hyväksi Google Translate -palvelua (oda-translate), jolla käyttäjän syöttämät viestit käännetään englanniksi Tone Analyzer ja Sentiment analyysiä varten.
+### B. Node-Red chat integraatio web-sivulle
 
+Tämä Node-RED flow implementoi chatbot-liittymän (http://<node-red-url>/bot) jossa voi keskustella kirjoittamalla suoraan suomenkielellä. Lisäksi flow implementoi keskustelun interaktiot Conversation palvelun kanssa. Tämä esimerkki hyödyntää IBM Virtual Agent palvelu, joka auttaa keskustelun luomisessa suoraan selaimesta ja ilman mitään koodausta. Chatti näkyy ODA demo sivuun vieressä.
 
-B. Node-Red chat integraatio
+#### Asennus ja konfigurointi
 
 Node-RED flow: (voit käyttää luomasi sovellus kohdassa 'A')
 1. Kirjaudu Bluemixiin (http://bluemix.net)
@@ -59,9 +65,6 @@ IBM Virtual Agent
 3. Tarvitset Virtual Agent credentiaalit saadakseen Node-Red flown toimimaan. Saat niitä Virtual Agent APIn kautta. 
 Lisätietoja tässä: https://www.ibm.com/us-en/marketplace/cognitive-customer-engagement
 
-
-Kuvaus:
-Node-RED flow implementoi chatbot-liittymän (http://<node-red-url>/bot) jossa voi keskustella kirjoittamalla suoraan suomenkielellä. Lisäksi flow implementoi keskustelun interaktiot Conversation palvelun kanssa. Tämä esimerkki hyödyntää IBM Virtual Agent palvelu, joka auttaa keskustelun luomisessa suoraan selaimesta ja ilman mitään koodausta. Chatti näkyy ODA demo sivuun vieressä.
 
 
 
