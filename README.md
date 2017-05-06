@@ -54,7 +54,11 @@ $ cf push oda-translate
 
 ### B. Node-Red chat integraatio web-sivulle
 
+![Node-RED web flow esimerkki](https://github.com/oirearviohack/ibm-duodecim/blob/master/oda-web-node-flow-sample.png?raw=true)
+
 Tämä Node-RED flow implementoi chatbot-liittymän (http://your-node-red-url.mybluemix.net/bot) jossa voi keskustella kirjoittamalla suoraan suomenkielellä. Lisäksi flow implementoi keskustelun interaktiot Conversation palvelun kanssa. Tämä esimerkki hyödyntää IBM Virtual Agent palvelu, joka auttaa keskustelun luomisessa suoraan selaimesta ja ilman mitään koodausta. Chatti näkyy ODA demo sivuun vieressä.
+
+![Embed esimerkki](https://github.com/oirearviohack/ibm-duodecim/blob/master/oda-embedded-chatbot-sample.png?raw=true)
 
 #### Asennus ja konfigurointi
 
@@ -76,6 +80,7 @@ IBM Virtual Agent
 3. Tarvitset Virtual Agent credentiaalit saadakseen Node-Red flown toimimaan. Saat niitä Virtual Agent APIn kautta. 
 Lisätietoja tässä: https://www.ibm.com/us-en/marketplace/cognitive-customer-engagement
 
+![IBM Virtual Agent esimerkki](https://github.com/oirearviohack/ibm-duodecim/blob/master/IBM_Virtual_Agent_sample.png?raw=true)
 
 
 
